@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasquatch Websightings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sighting_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Sasquatch Websightings</h1>
+            </div>
+            <div class="out">
+                <p>{{one_user.first_name}} {{one_user.last_name}}</p>
+                <a href="/dashboard/{{one_user.id}}">Dashboard</a>
+                <a class="logout" href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div class="messagelist">
+            <div>
+                <h1>{{sighting_info.location}} on {{sighting_info.date}}</h1>
+            </div>
+            <div class="sightinginfo">
+                <div>
+                    <h5>What Happened:</h5>
+                </div>
+                <div>
+                    <p>{{sighting_info.description}}</p>
+                </div>
+            </div>
+            <div class="sightinginfo">
+                <div>
+                    <h5># of Sasquatches:</h5>
+                </div>
+                <div>
+                    <p>{{sighting_info.number}}</p>
+                </div>
+            </div>
+            <div class="sightinginfo">
+                <div>
+                    <h5>Reported by:</h5>
+                </div>
+                <div>
+                    <p>{{sighting_info.reporter_name}}</p>
+                </div>
+            </div>
+            <div class="skeptics">
+                <h2>Skeptics</h2>
+                {%for skeptic in number_skeptic%}
+                <p>{{skeptic.first_name}} {{skeptic.last_name}}</p>
+                {%endfor%}
+                <a href="/skeptical/{{sighting_info.id}}"><button>I'm Skeptical</button></a>                    
+                <a href="/believe/{{sighting_info.id}}"><button>Believe</button></a>                    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

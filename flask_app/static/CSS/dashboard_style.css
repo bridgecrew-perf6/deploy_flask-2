@@ -1,0 +1,56 @@
+body{
+    width: 100%;
+    background-color: black;
+    font-family: 'Andika New Basic', sans-serif;
+    letter-spacing: 1px;
+}
+
+.wallcontainer{
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+    background-color: rgb(72, 72, 72);
+    color: white;
+    display: block;
+    justify-content: center;
+}
+
+.logout{
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.sightinglist{
+    width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+.sightings{
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.topper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
+    border-bottom: 3px solid black;
+}
+
+.out{
+    display: block;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+a{
+    color: rgb(91, 91, 193);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasquatch Websightings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/add_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Sasquatch Websightings</h1>
+            </div>
+            <div class="out">
+                <p>{{one_user.first_name}} {{one_user.last_name}}</p>
+                <a href="/dashboard/{{one_user.id}}">Dashboard</a>
+                <a class="logout" href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div>
+                <div>
+                    <h2>Report a Sighting</h1>
+                </div>
+                <form class="formlist" action="/create" method="post">
+                    <div>
+                        <input type="hidden" name="reporter_id">
+                        <input type="hidden" name="reporter_name" value="{{one_user.first_name}} {{one_user.last_name}}">
+                        <div>
+                            <label for="title">location:</label>
+                            <input type="text" name="location">
+                        </div>
+                        <div>
+                            <label for="description">What Happened:</label>
+                            <textarea name="description" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div>
+                            <label for="date">Date:</label>
+                            <input type="date" name="date">
+                        </div>
+                        <div>
+                            <label for="number"># of Sasquatches:</label>
+                            <input type="number" name="number">
+                            <input type="submit" value="Report">
+                            </div>
+                        </div>
+                    </div>
+                    {%with messages = get_flashed_messages()%}    
+                        {%if messages %}                            
+                            {%for message in messages%}           
+                                <p class="message">{{message}}</p>                   
+                            {%endfor %}
+                        {%endif %}
+                    {%endwith %}
+                </form>
+        </div>
+    </div>
+</body>
+</html>

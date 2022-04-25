@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasquatch Websighting</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/edit_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Sasquatch Websightings</h1>
+            </div>
+            <div class="out">
+                <p>{{one_user.first_name}} {{one_user.last_name}}</p>
+                <a href="/dashboard/{{one_user.id}}">Dashboard</a>
+                <a class="logout" href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div>
+                <div>
+                    <h2>Edit this Sighting</h1>
+                </div>
+                <form class="formlist" action="/update/{{sighting_info.id}}" method="post">
+                    <div>
+                        <div>
+                            <label for="location">Location:</label>
+                            <input type="text" name="location" value="{{sighting_info.location}}">
+                        </div>
+                        <div>
+                            <label for="description">What Happened:</label>
+                            <textarea name="description" id="" cols="30" rows="10">{{sighting_info.description}}</textarea>
+                        </div>
+                        <div>
+                            <label for="date">Date:</label>
+                            <input type="date" name="date" value="{{sighting_info.date}}">
+                        </div>
+                        <div>
+                            <label for="number"># of Sasquatches:</label>
+                            <input type="number" name="number" value="{{sighting_info.number}}">
+                            <input type="submit" value="Update">
+                            </div>
+                        </div>
+                    </div>
+                    {%with messages = get_flashed_messages()%}    
+                        {%if messages %}                            
+                            {%for message in messages%}           
+                                <p class="message">{{message}}</p>                   
+                            {%endfor %}
+                        {%endif %}
+                    {%endwith %}
+                </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body{
+    width: 100%;
+    background-color: black;
+    font-family: 'Andika New Basic', sans-serif;
+    letter-spacing: 1px;
+}
+
+.container{
+    width: 600px;
+    height: 800px;
+    margin: auto;
+    background-color: rgb(72, 72, 72);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.register, .login{
+    display: inline;
+    padding: 40px;
+}
+
+div, input{
+    display: block;
+    margin: 7px 0px;
+}
+
+.login{
+    border-left: 2px solid black;
+}
+
+h2{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+input{
+    height: 20px;
+}
+
+.submit, button{
+    height: 30px;
+    font-weight: bold;
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.out{
+    display: flex;
+    justify-content: center;
+}
+
+.message{
+    margin: 0px;
+    color: red;
+    padding: 0px;
+}

@@ -1,0 +1,72 @@
+body{
+    width: 100%;
+    background-color: black;
+    font-family: 'Andika New Basic', sans-serif;
+    letter-spacing: 1px;
+}
+
+
+.wallcontainer{
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+    background-color: rgb(72, 72, 72);
+    color: white;
+    display: block;
+    justify-content: center;
+}
+
+div, input{
+    display: block;
+    margin: 7px 0px;
+}
+
+.login{
+    border-left: 2px solid black;
+}
+
+.logout{
+    margin-left: 15px;
+}
+
+
+.topper{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
+    border-bottom: 3px solid black;
+}
+
+.out{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.messagelist{
+    margin: auto;
+    width: 950px;
+    display: block;
+    justify-content: center;
+    border: 3px solid rgb(72, 72, 72);
+}
+
+.sightinginfo{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    }
+
+h3, h5{
+    text-decoration: 2px underline;
+}
+
+p{
+    margin-left: 30px;
+    }
+
+a{
+    color: rgb(91, 91, 193);
+    margin-left: 10px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasquatch Websightings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Sasquatch Websightings</h1>
+            </div>
+            <div class="out">
+                <p>{{one_user.first_name}} {{one_user.last_name}}</p>
+                <a href="/report_sighting">Report Sighting</a>
+                <a class="logout" href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div class="usersightings">
+            <div class="sightinglist">
+                <div>
+                    <div>
+                        <h2>Reported Sightings</h5>
+                    </div>
+                    {%for sighting in all_sightings%}
+                        <div class="sightings">
+                                <p>Skeptics <br>
+                                {%if sighting.skeptics|length == False%}
+                                        0
+                                {%else%}    
+                                    {{sighting.skeptics|length}}
+                                {%endif%}
+                                </p>
+                                <p>{{sighting.location}} {{sighting.date}}
+                                    <br> Reported by: {{sighting.reporter_name}}
+                                    <a href="/show/{{sighting.id}}" style="color: rgb(53, 146, 246);">View</a>
+                                    {%if sighting.reporter_id == session['user_id']%}
+                                    <a href="/delete/{{sighting.id}}"> Delete |</a>
+                                    <a href="/edit/{{sighting.id}}"> Edit</a>
+                                    {%endif%}
+                                </p>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
